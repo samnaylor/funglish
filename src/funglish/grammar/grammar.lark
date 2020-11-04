@@ -1,0 +1,37 @@
+start: toplevel*
+
+toplevel: function
+		| statement	-> tls
+
+function: NAME take_statement
+
+take_statement: "take" statement
+
+statement: statement_part [(("," statement_part)*)] "."
+
+statement_part: maths 
+		 	  | show
+			  | expression
+
+maths: "add" expression			-> add
+	 | "subtract" expression	-> sub
+	 | "multiply by" expression	-> mul
+	 | "divide by" expression	-> div
+
+show: "show"
+
+expression: NUMBER				-> number
+		  | NAME 				-> variable
+          | "run" expression 	-> call
+          | "load" expression 	-> callnoargs
+
+NAME: /(?!(add|divide|show|run|load|multiply|subtract))[a-zA-Z][a-zA-Z ]*/
+NUMBER: /\d+/
+
+COMMENT: /#[^\n]*/
+
+%import common.WS
+%ignore WS
+
+
+%ignore COMMENT
