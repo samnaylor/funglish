@@ -15,6 +15,6 @@ take 3. # b = 3
 load a, add load b, show. # print a + b (5)
 
 b
-take 4. # b = 4
+take 4, add 100_000. # b = 4
 
 load a, add load b, show. # print a + b (6)

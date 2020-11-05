@@ -50,6 +50,18 @@ class CodeGenerator:
         del self.stack[-2:]
         self.stack.append(f"({a} + {b})")
 
+    def SUB(self, node):
+        self._generate(node[1])
+        a, b = self.stack[-2:]
+        del self.stack[-2:]
+        self.stack.append(f"({a} - {b})")
+
+    def MULTIPLY(self, node):
+        self._generate(node[1])
+        a, b = self.stack[-2:]
+        del self.stack[-2:]
+        self.stack.append(f"({a} * {b})")
+
     def DIVIDE(self, node):
         self._generate(node[1])
         a, b = self.stack[-2:]

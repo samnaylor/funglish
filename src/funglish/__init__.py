@@ -1,2 +1,3 @@
 from funglish.codegen import CodeGenerator
-from funglish.grammar import FunglishParser
+from funglish.tokeniser import tokenise
+from funglish.parser import Parser

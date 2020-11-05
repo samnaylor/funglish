@@ -8,6 +8,6 @@ var b = (theInput) => 3;
 
 console.log((a() + b()))
 
-var b = (theInput) => 4;
+var b = (theInput) => (4 + 100_000);
 
 console.log((a() + b()))
